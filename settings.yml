@@ -1,0 +1,4 @@
+svg_icons:
+  default: "far-comments"
+  type: "list"
+  list_type: "compact"

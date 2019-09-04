@@ -1,0 +1,19 @@
+{
+  "name": "Atlas",
+  "about_url": "",
+  "assets": {},
+  "color_schemes": {
+    "Atlas": {
+      "primary": "333333",
+      "secondary": "FFFFFF",
+      "tertiary": "20b2aa",
+      "quaternary": "20b2aa",
+      "header_background": "000000",
+      "header_primary": "FFFFFF",
+      "highlight": "D3DCE6",
+      "danger": "F02033",
+      "success": "04B98E",
+      "love": "f02079"
+    }
+  }
+}

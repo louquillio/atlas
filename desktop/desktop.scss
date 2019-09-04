@@ -1,0 +1,104 @@
+// This should all be positioning/size related, colors make more sense in /common
+
+#main-outlet {
+  padding-top: 6em;
+}
+
+.wrap {
+  padding: 0 18px;
+}
+
+ol.category-breadcrumb {
+  @media screen and (max-width: 650px) {
+    margin-bottom: 10px;
+  }
+}
+
+// Topic list
+
+#list-area {
+  .contents {
+    margin-top: 15px;
+  }
+}
+
+.topic-list-item {
+  a img {
+    // Small participant avatars
+    width: 20px;
+    height: 20px;
+  }
+  a.badge-wrapper {
+    display: none;
+  }
+  a:not(.badge-wrapper) span {
+    @media screen and (max-width: 650px) {
+      margin-left: 0;
+    }
+  }
+
+  img.avatar {
+    display: none;
+  }
+
+  .number {
+    margin-left: 10px;
+
+    @media screen and (max-width: 650px) {
+      order: 2;
+      margin-right: 15px;
+    }
+  }
+
+  .topic-excerpt,
+  span.relative-date,
+  span.number,
+  > .posts-map,
+  > .post-activity {
+    display: none;
+  }
+}
+
+.topic-avatar {
+  padding-top: 43px;
+}
+
+.topic-body {
+  // Each post
+  width: 685px;
+  padding: 38px 11px 20px 6px;
+  @media screen and (max-width: 820px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 510px) {
+    width: 85%;
+  }
+}
+
+section.post-menu-area {
+  margin: 40px 0 0 0;
+}
+
+body.category-header {
+  // Usercard alignment off when header present in topic list
+  #user-card {
+    margin-top: 200px;
+  }
+}
+
+// User
+
+.user-main .about .controls {
+  width: auto;
+}
+
+.custom-posters {
+  a:first-of-type {
+    display: none;
+  }
+}
+
+.byline img.avatar {
+  display: inline-block;
+  margin-right: .25em;
+}

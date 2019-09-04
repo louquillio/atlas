@@ -1,0 +1,101 @@
+<script type="text/discourse-plugin" version="0.8">  // Custom dismissable category headers
+    const container = Discourse.__container__;    
+    const { h } = require('virtual-dom');
+    
+    const dismiss = {
+        click(e) {
+            e.preventDefault();
+            if (!this.attrs.active) {
+                this.sendWidgetAction(this.attrs.action);
+            }
+        }
+    };
+    
+    api.createWidget('banner-dismiss', jQuery.extend({ // Dismiss button
+        tagName: 'span',
+        html(attrs, state) {
+            return h('span', {
+            },
+            h('a', {
+                
+            }, 'Dismiss this message'),
+            )}}, dismiss));
+            
+            
+            api.createWidget('category-banner', { // Category header
+                tagName: 'span',
+                
+                toggleSecondaryMenu() {
+                    
+                    const controller = container.lookup('controller:navigation/category');
+                    category = controller.get("category");
+                    $('#category-title-header').hide();
+                    $("#main-outlet").css("padding-top","6em");
+                    localStorage.setItem(category.name, "true");
+                },
+                
+                html(attrs, state) {
+                    
+                    const path = window.location.pathname;
+                    let category;
+                    
+                    const controller = container.lookup('controller:navigation/category');
+                    category = controller.get("category");
+                    
+                    if (category) {
+                        var hasDismissed = localStorage.getItem(category.name);
+                    }
+                    
+                    if((/^\/c\//.test(path)) && (!hasDismissed) && (category.description) ) {
+                        $("body").addClass("category-header"); 
+                        
+                        return h('div#category-title-header' + '.' + category.slug, {
+                        }, h('div.category-title-contents', [
+                        h('h1', category.name),   
+                        h('p', category.description_text),
+                        this.attach('banner-dismiss', {
+                            action: 'toggleSecondaryMenu'
+                        }),                 
+                        ]),
+                        );            
+                        
+                    } else {
+                        $("body").removeClass("category-header");
+                    }
+                    
+                }      
+            }),
+            
+            api.decorateWidget('category-banner:after', helper => {
+                helper.widget.appEvents.on('page:changed', () => {
+                    helper.widget.scheduleRerender();
+                    
+                });           
+                
+            });
+</script>
+
+<script type='text/x-handlebars' data-template-name='/connectors/below-site-header/category-banner'>
+    {{mount-widget widget="category-banner"}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="/connectors/topic-list-before-reply-count/icon.raw">
+  {{d-icon 'comments-o'}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="/connectors/topic-list-before-relative-date/icon.raw">
+  {{d-icon 'clock-o'}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="list/visited-line.raw">
+    {{#if view.isLastVisited}}
+      <tr class='topic-list-item-separator'>
+        <td colspan="6">
+          <span>
+            {{d-icon 'chevron-down'}}
+            {{i18n 'topics.new_messages_marker'}}
+          </span>
+        </td>
+      </tr>
+    {{/if}}
+</script>

@@ -1,0 +1,84 @@
+<script
+  type="text/x-handlebars"
+  data-template-name="mobile/list/topic-list-item.raw"
+>
+
+  <td>
+    {{~#unless expandPinned}}
+      <div class='right'>
+    {{else}}
+      <div>
+    {{/unless~}}
+      <div class='main-link'>
+        {{#if topic.featured_link}}
+          {{topic-featured-link topic}}
+        {{/if}}
+        {{raw "topic-status" topic=topic}}
+        {{topic-link topic}}
+
+        {{#if topic.unseen}}
+          <span class="badge-notification new-topic"></span>
+        {{/if}}
+
+        <div class='category'>
+            {{category-link topic.category.parentCategory}}
+            {{category-link topic.category hideParent="true"}}
+        </div>
+
+        {{raw "list/topic-excerpt" topic=topic}}
+
+      </div>
+
+      <div class="topic-item-stats clearfix">
+
+          <div class="post-meta">
+
+          <span class="post-count-or-badge">
+            {{raw "list/post-count-or-badges" topic=topic postBadgesEnabled=showTopicPostBadges}}
+          </span>
+          <span class="age activity" title="{{topic.bumpedAtTitle}}">
+            <a href="{{topic.lastPostUrl}}">
+              {{d-icon 'clock-o'}}
+              {{format-date topic.bumpedAt format="tiny" noTitle="true"}}
+            </a>
+          </span>
+          <span class="custom-participants">
+              <a href="{{topic.posters.[0].user.userPath}}" data-user-card="{{topic.posters.[0].user.username}}">{{avatar topic.posters.[0].user imageSize='small'}}</a>
+              <a href="{{topic.posters.[1].user.userPath}}" data-user-card="{{topic.posters.[1].user.username}}">{{avatar topic.posters.[1].user imageSize='small'}}</a>
+              <a href="{{topic.posters.[2].user.userPath}}" data-user-card="{{topic.posters.[2].user.username}}">{{avatar topic.posters.[2].user imageSize='small'}}</a>
+              <a href="{{topic.posters.[3].user.userPath}}" data-user-card="{{topic.posters.[3].user.username}}">{{avatar topic.posters.[3].user imageSize='small'}}</a>
+              <a href="{{topic.posters.[4].user.userPath}}" data-user-card="{{topic.posters.[4].user.username}}">{{avatar topic.posters.[4].user imageSize='small'}}</a>
+          </span>
+          </div>
+          {{discourse-tags topic mode="list"}}
+
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </td></script
+><!-- Modified template so basic-topic-list uses topic-list-item.raw on mobile -->
+
+<script
+  type="text/x-handlebars"
+  data-template-name="mobile/components/basic-topic-list"
+>
+
+    {{#conditional-loading-spinner condition=loading}}
+    {{#if hasIncoming}}
+    <div class="show-mores">
+      <div class='alert alert-info clickable' {{action "showInserted"}}>
+        {{count-i18n key="topic_count_" suffix="latest" count=incomingCount}}
+        {{i18n 'click_to_show'}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if topics}}
+      {{topic-list topics=topics}}
+    {{else}}
+      <div class='alert alert-info'>
+        {{i18n 'choose_topic.none_found'}}
+      </div>
+    {{/if}}
+  {{/conditional-loading-spinner}}
+</script>

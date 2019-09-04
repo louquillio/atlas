@@ -1,0 +1,31 @@
+<!-- Convert topic table to divs -->
+<script>
+  (function() {
+    var TopicListItemView = require("discourse/components/topic-list-item")
+      .default;
+    TopicListItemView.reopen({
+      tagName: "div"
+    });
+  })();
+</script>
+
+<!-- Add OP username after title -->
+<script
+  type="text/x-handlebars"
+  data-template-name="/connectors/topic-list-after-title/op-name.raw"
+>
+  <div class="byline">
+   <a href="">{{category-link context.topic.category.parentCategory}}{{category-link context.topic.category hideParent="true"}}</a>
+   <a href="{{context.topic.posters.[0].user.userPath}}" data-user-card="{{context.topic.posters.[0].user.username}}">{{avatar context.topic.posters.[0].user imageSize='large'}}{{context.topic.posters.[0].user.username}}</a>
+  </div>
+   <div class="topic-excerpt">{{raw "list/topic-excerpt" topic=context.topic}}</div>
+
+   <div class="op-name">
+     <div class="a">
+       {{raw "list/posts-count-column" topic=context.topic}} {{raw "list/activity-column" topic=context.topic class="num" tagName="td"}}
+       <div class="custom-posters">
+       {{raw "list/posters-column" posters=context.topic.posters}}
+       </div>
+     </div>
+   </div>
+</script>
