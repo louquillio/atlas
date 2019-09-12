@@ -17,12 +17,13 @@ $n-dark: #00938c;
 
 // Fonts
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
+//@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web:900&display=swap");
 
 // Global style
 html {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", "Open Sans", sans-serif;
 }
 
 #main-outlet {
