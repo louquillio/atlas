@@ -19,7 +19,7 @@ $n-dark: #00938c;
 
 //@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
 
 // Global style
 html {
@@ -334,7 +334,7 @@ pre {
 }
 
 span.date-section {
-  font-family: "Roboto Condensed";
+  font-family: "Anton";
   font-size: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -1080,7 +1080,7 @@ nav.post-controls .highlight-action {
   h3.suggested-topics-title {
     border-bottom: 1px solid $primary;
     padding-bottom: 2px;
-    font-family: "Roboto Condensed";
+    font-family: "Anton";
     font-size: 25px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1275,7 +1275,7 @@ th.category,
   color: $primary;
   font-weight: bold;
   text-transform: uppercase;
-  font-family: "Roboto Condensed";
+  font-family: "Anton";
   font-size: 1.43em;
   letter-spacing: 2px;
 }
