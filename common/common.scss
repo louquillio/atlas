@@ -1146,27 +1146,6 @@ h3.suggested-topics-message {
   }
 }
 
-body {
-  #reply-control {
-    .category-input {
-      margin-right: 0;
-    }
-    .mini-tag-chooser {
-      display: none;
-    }
-  }
-  &.staff {
-    #reply-control {
-      .category-input + .mini-tag-chooser {
-        margin-left: 5px;
-      }
-      .mini-tag-chooser {
-        display: flex;
-      }
-    }
-  }
-}
-
 .select-kit.dropdown-select-box.composer-actions .select-kit-header {
   border: 1px solid $smoke-dark;
   .d-icon {
