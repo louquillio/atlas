@@ -1427,3 +1427,11 @@ a.badge.new-posts.badge-notification {
     border-color: #919191 !important;
   }
 }
+
+// LQ overrides
+
+div.topic-status-info h3.topic-timer-heading {
+  //font-size: 1em;
+  //font-weight: normal;
+  display: none;
+}
