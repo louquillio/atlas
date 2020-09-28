@@ -1435,20 +1435,3 @@ div.topic-status-info h3.topic-timer-heading {
   //font-weight: normal;
   display: none;
 }
-
-.badge-notification.new-topic::before {
-  background: var(--tertiary-high);
-  display: inline-block;
-  height: auto;
-  width: auto;
-  /*border-radius: 50%;*/
-  display: block;
-  content: "New";
-  padding: 4px 6px;
-  font-size: 0.5em;
-  text-transform: uppercase;
-  background: #f02033;
-  color: #fff;
-  margin-right: 4px;
-  margin-left: -15px;
-  
