@@ -1435,3 +1435,11 @@ div.topic-status-info h3.topic-timer-heading {
   //font-weight: normal;
   display: none;
 }
+
+.badge-notification.new-topic {
+  &:before {
+    height: inherit;
+    width: inherit;
+    border-radius: inherit;
+  }
+}
