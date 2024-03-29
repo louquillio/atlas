@@ -182,7 +182,7 @@ pre {
 .select-kit.combo-box.group-dropdown .combo-box-header {
   background: #000; // LQ 2024-03-29
   border: 1px solid $smoke-darker;
-  color: $primary;
+  color: #ddd; // LQ 2024-03-29
   &:hover,
   &.is-highlighted {
     background: $snow-dark;
